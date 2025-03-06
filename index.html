@@ -5,6 +5,14 @@
             font-family: "Lato", sans-serif;
         }
 
+        .list-item a {
+            color: black;
+        }
+
+        .list-item a.dark-mode {
+            color: white;
+        }
+
         .sidebar {
             height: 100%;
             width: 0;
@@ -168,29 +176,40 @@
 
         .image1 {
             width: 100%;
-            height: 60%;
+            height: 100%;
             object-fit: cover;
             object-position: top;
             transition: all .5s ease;
+            max-height: 500px;
             max-width: 1400px;
             text-align: center;
             display: block;
             margin: 0 auto;
 		}
+
+        .image2 {
+            object-fit: cover;
+            object-position: top;
+            transition: all .5s ease;
+            max-height: 500px;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+        }
         
         </style>
     </head>
     <body>
         <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="files/Boom.mov">Creeper</a>
-        <label class="switch">
-            <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
-            <span class="slider round"></span>
-        </label>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="files/Boom.mov">Creeper</a>
+            <label class="switch">
+                <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
+                <span class="slider round"></span>
+            </label>
         </div>
 
         <div>
@@ -219,6 +238,10 @@
                 var links = document.querySelectorAll(".sidebar a");
                 links.forEach(link => link.classList.toggle("dark-mode"));
                 document.querySelector(".openbtn").classList.toggle("dark-mode");
+                document.querySelector("#content").classList.toggle("dark-mode");
+            
+                var listItems = document.querySelectorAll(".list-item a");
+                listItems.forEach(item => item.classList.toggle("dark-mode"));  
             }
 
             </script>
@@ -237,46 +260,74 @@
             </h2>
 
             <p style="margin-left: 25px;">
-                Ceva despre Romania, cred nu stiu, idk.
+                România este un stat situat în sud-estul Europei Centrale, pe cursul inferior al Dunării, la nord de peninsula Balcanică și la țărmul nord-vestic al Mării Negre. România este plasată geografic și în Europa de Est, Europa de Sud-Est respectiv parțial în Europa Centrală. Din punct de vedere geopolitic, România este un stat situat în Europa Centrală și de Est iar din punct de vedere cultural se încadrează parțial în conceptul de „Mitteleuropa” (i.e., Europa de mijloc sau Europa Centrală în limba germană) prin regiunile istorice Transilvania, Banat și Bucovina. Pe teritoriul ei este situată aproape toată suprafața Deltei Dunării și partea sudică și centrală a Munților Carpați. Se învecinează cu Bulgaria la sud, Serbia la sud-vest, Ungaria la nord-vest, Ucraina la nord și est și Republica Moldova la est, iar țărmul Mării Negre se găsește la sud-est.
             </p>
 
             <h1>
                 <u style="margin-left: 50px;">
-                Destinatii turistice
+                Destinatii turistice:
                 </u>
             </h1>
             <h2>
-                <ul>
-                    <li>
-                        <a href="files/Boom.mov" style="color: rgb(0, 0, 0);">Transalpina</a>
-                    </li>
-                    <img class="image1" src="files/images/Coperta.jpg">
-                    <li>
-                        <a href="files/Boom.mov" style="color: rgb(0, 0, 0);">Creeper</a>
-                    </li>
-                    <li>
-                        <a href="files/Boom.mov" style="color: rgb(0, 0, 0);">Creeper</a>
-                    </li>
-                    <li>
-                        <a href="files/Boom.mov" style="color: rgb(0, 0, 0);">Creeper</a>
-                    </li>
-                    <li>
-                        <a href="files/Boom.mov" style="color: rgb(0, 0, 0);">Creeper</a>
-                    </li>
-                    <li>
-                        <a href="files/Boom.mov" style="color: rgb(0, 0, 0);">Creeper</a>
-                    </li>
-                    <li>
-                        <a href="files/Boom.mov" style="color: rgb(0, 0, 0);">Creeper</a>
-                    </li>
-                    <li>
-                        <a href="files/Boom.mov" style="color: rgb(0, 0, 0);">Creeper</a>
-                    </li>
-                    <li>
-                        <a href="files/Boom.mov" style="color: rgb(0, 0, 0);">Creeper</a>
-                    </li>
-                </ul>
+                <u style="margin-left: 25px;" class = "list-item">
+                    1. Transalpina
+                <a href="files/images/Transalpina.jpg">
+                    <img src="files/images/Transalpina.jpg" class="image2">
+                </a>
+                </u>
             </h2>
+            <p>
+                Este unul dintre cele mai frumoase locuri din România deoarece Transalpina reprezintă cel mai înalt drum rutier din România, dar și din întregul lanț al Munților Carpați. Drumul are o lungime de 146 de kilometri și este situat la o altitudine de 2.145 de metri. Transalpina este un drum spectaculos, cu peisaje deosebite, care îți taie respirația.
+            </p>
+            <b class="list-item">
+                <a href="">- Mai multe informatii</a>
+            </b>
+
+            <h2>
+                <u style="margin-left: 25px;" class = "list-item">
+                    2. Transfăgărășan
+                <a href="files/images/Transfagarasean.jpg">
+                    <img src="files/images/Transfagarasean.jpg" class="image2">
+                </a>
+                </u>
+            </h2>
+            <p>
+                Unul dintre cele mai frumoase obiective turistice, deoarece traseul Transfăgărășan îți pune la dispoziție pentru vizitat și lacul glaciar Bâlea, cascada Bâlea, lacul Vidraru și barajul Vidraru, dar și multe alte puncte turistice.
+            </p>
+            <b class="list-item">
+                <a href="">- Mai multe informatii</a>
+            </b>
+
+            <h2>
+                <u style="margin-left: 25px;" class = "list-item">
+                    3. Cascada Bigăr
+                <a href="files/images/cascada bigar.jpg">
+                    <img src="files/images/cascada bigar.jpg" class="image2">
+                </a>
+                </u>
+            </h2>
+            <p>
+                Cascada Bigăr este unul dintre cele mai frumoase obiective turistice din județul Caraș-Severin, din Parcul Național Cheile Nerei-Beușnița. În urma unui clasament făcut în 2013 de The World Geography, cascada Bigăr a obținut primul loc pentru cea mai frumoasă cascadă unică din lume.
+            </p>
+            <b class="list-item">
+                <a href="">- Mai multe informatii</a>
+            </b>
+
+            <h2>
+                <u style="margin-left: 25px;" class = "list-item">
+                    4. Cetatea Alba Iulia
+                <a href="files/images/Cetatea alba iulia.jpg">
+                    <img src="files/images/Cetatea alba iulia.jpg" class="image2">
+                </a>
+                </u>
+            </h2>
+            <p>
+                Unul dintre cele mai vizitate obiective turistice din România, acolo unde, înainte de a o vizita în totalitate, turiștii pot face un tur virtual la pas pe străzile Cetății Alba Iulia.
+            </p>
+            <b class="list-item">
+                <a href="">- Mai multe informatii</a>
+            </b>
+
         </div>
     </body>
 </html>
