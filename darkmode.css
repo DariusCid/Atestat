@@ -1,0 +1,34 @@
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .sidebar {
+    background-color: #333;
+}
+
+body.dark-mode .sidebar a {
+    color: #ffffff;
+}
+
+body.dark-mode .sidebar a:hover {
+    color: #f1f1f1;
+}
+
+body.dark-mode .openbtn {
+    background-color: #333;
+    color: #ffffff;
+}
+
+body.dark-mode .openbtn:hover {
+    background-color: #444;
+}
+
+body.dark-mode #content {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .list-item a {
+    color: #ffffff;
+}
