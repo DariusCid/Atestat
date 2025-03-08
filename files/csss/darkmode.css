@@ -32,3 +32,7 @@ body.dark-mode #content {
 body.dark-mode .hreftext a {
     color: #ffffff;
 }
+
+body.dark-mode .slider span {
+    color : #ffffff;
+}

@@ -95,8 +95,8 @@
             top: 20px;
             left: 32px;
             display: inline-block;
-            width: 60px;
-            height: 20px;
+            width: 100px;
+            height: 34px;
         }
 
         .switch input {
@@ -112,29 +112,32 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #ccc;
+            background-color: #00e1ff;
             transition: .4s;
             border-radius: 34px;
         }
 
-        .slider:before {
+        .slider span {
+            color: rgb(255, 247, 0);
             position: absolute;
             content: "";
+            font-size: 65px;
             height: 30px;
             width: 30px;
-            left: -5px;
-            bottom: -5px;
-            background-color: rgb(255, 255, 255);
+            left: -10px;
+            bottom: 35px;
             transition: .4s;
             border-radius: 50%;
         }
 
         input:checked + .slider {
-            background-color: #2196F3;
+            background-color: #104774;
         }
 
-        input:checked + .slider:before {
-            transform: translateX(40px); 
+        input:checked + .slider span {
+            transform: translateX(85px);
+            font-size: 39px;
+            bottom: 16px;
         }
 
         .image1 {
@@ -154,7 +157,6 @@
             object-fit: cover;
             object-position: top;
             transition: all .5s ease;
-            max-height: 500px;
             max-width: 1400px;
             text-align: center;
             display: block;
@@ -177,7 +179,7 @@
         <a href="../Boom.mov">Creeper</a>
         <label class="switch">
             <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
-            <span class="slider round"></span>
+            <span class="slider round"><span id="darkModeIcon">☀︎</span></span>
         </label>
     </div>
 
@@ -202,23 +204,28 @@
         }
 
         function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
+        document.body.classList.toggle("dark-mode");
 
-            // Save dark mode state to localStorage
-            if (document.body.classList.contains("dark-mode")) {
-                localStorage.setItem("darkMode", "enabled");
-            } else {
-                localStorage.removeItem("darkMode");
-            }
+        // Save dark mode state to localStorage
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("darkMode", "enabled");
+            document.getElementById("darkModeIcon").innerText = "☽";
+        } else {
+            localStorage.removeItem("darkMode");
+            document.getElementById("darkModeIcon").innerText = "☀︎";
         }
+    }
 
-        // Apply dark mode if it was enabled previously
-        window.onload = function() {
-            if (localStorage.getItem("darkMode") === "enabled") {
-                document.body.classList.add("dark-mode");
-                document.getElementById("darkModeSwitch").checked = true;
-            }
+    // Apply dark mode if it was enabled previously
+    window.onload = function() {
+        if (localStorage.getItem("darkMode") === "enabled") {
+            document.body.classList.add("dark-mode");
+            document.getElementById("darkModeSwitch").checked = true;
+            document.getElementById("darkModeIcon").innerText = "☽";
+        } else {
+            document.getElementById("darkModeIcon").innerText = "☀︎";
         }
+    }
     </script>
 
     <div id="content">
