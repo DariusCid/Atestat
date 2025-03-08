@@ -29,6 +29,6 @@ body.dark-mode #content {
     color: #ffffff;
 }
 
-body.dark-mode .list-item a {
+body.dark-mode .hreftext a {
     color: #ffffff;
 }
