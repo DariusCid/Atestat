@@ -112,9 +112,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: #00e1ff;
-            transition: .4s;
+            background-image: url(../Images/Sky.png);
+            background-size: cover;
             border-radius: 34px;
+            transition: background-image 1s;
         }
 
         .slider span {
@@ -124,18 +125,26 @@
             font-size: 65px;
             height: 30px;
             width: 30px;
-            left: -10px;
+            left: 55px;
             bottom: 35px;
-            transition: .4s;
+            transition: transform 1s;
             border-radius: 50%;
         }
 
         input:checked + .slider {
-            background-color: #104774;
+            transition: 1s;
+            background-position: -500px;
+            background-size: cover;
+        }
+
+        input:not(:checked) + .slider {
+            transition: 1s;
+            background-position: 0px;
+            background-size: cover;
         }
 
         input:checked + .slider span {
-            transform: translateX(85px);
+            transform: translateX(-55px);
             font-size: 39px;
             bottom: 16px;
         }
@@ -174,8 +183,8 @@
     <div id="mySidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <a href="#">Home</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
+        <a href="#">Nothing</a>
+        <a href="#">Bibliografie</a>
         <a href="../Boom.mov">Creeper</a>
         <label class="switch">
             <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
@@ -209,7 +218,7 @@
         // Save dark mode state to localStorage
         if (document.body.classList.contains("dark-mode")) {
             localStorage.setItem("darkMode", "enabled");
-            document.getElementById("darkModeIcon").innerText = "☽";
+            document.getElementById("darkModeIcon").innerText = "☾";
         } else {
             localStorage.removeItem("darkMode");
             document.getElementById("darkModeIcon").innerText = "☀︎";
@@ -221,7 +230,7 @@
         if (localStorage.getItem("darkMode") === "enabled") {
             document.body.classList.add("dark-mode");
             document.getElementById("darkModeSwitch").checked = true;
-            document.getElementById("darkModeIcon").innerText = "☽";
+            document.getElementById("darkModeIcon").innerText = "☾";
         } else {
             document.getElementById("darkModeIcon").innerText = "☀︎";
         }
