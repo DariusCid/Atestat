@@ -119,24 +119,22 @@
         }
 
         .slider span {
-            color: rgb(255, 247, 0);
             position: absolute;
             content: "";
             font-size: 65px;
             height: 30px;
             width: 30px;
-            left: -10px;
-            bottom: 35px;
+            left: -15px;
+            bottom: 20px;
             transition: transform 1s, opacity 1s;
             border-radius: 50%;
         }
 
         .slider span.moon {
-            color: white;
             opacity: 0;
             transform: translateX(70px);
             bottom: 3;
-            left: -5;
+            left: 0;
         }
 
         input:checked + .slider span.sun {
@@ -212,9 +210,11 @@
         <label class="switch">
             <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
             <span class="slider round">
-                <span class="sun" id="darkModeIconSun">☀︎</span>
+                <span class="sun" id="darkModeIconSun">
+                    <img src="../Images/Sun.png">
+                </span>
                 <span class="moon" id="darkModeIconMoon">
-                    <img src="../Images/Moon.png" id="darkModeIconMoon" alt="Moon">
+                    <img src="../Images/Moon.png">
                 </span>
             </span>
         </label>
