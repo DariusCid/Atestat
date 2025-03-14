@@ -1,347 +1,193 @@
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="../csss/darkmode.css">
-    <style>
+    <head>
+        <link rel="stylesheet" type="text/css" href="../csss/darkmode.css">
+        <link rel="stylesheet" type="text/css" href="../csss/sidebar.css">
+        <style>
 
-        body {
-            font-family: "Lato", sans-serif;
-            transition: background-color 1s, color 1s;
-        }
+            body {
+                font-family: "Lato", sans-serif;
+                transition: background-color 1s, color 1s;
+            }
 
-        .hreftext a {
-            color: black;
-            margin-left: 25px;
-            font-size: 20;
-        }
+            .hreftext a {
+                color: black;
+                margin-left: 25px;
+                font-size: 20;
+            }
 
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-        }
+            .image1 {
+                width: 100%;
+                height: 60%;
+                object-fit: cover;
+                object-position: top;
+                transition: all .5s ease;
+                max-width: 1400px;
+                text-align: center;
+                display: block;
+                margin: 0 auto;
+            }
 
-        .sidebar a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
+            .image2 {
+                height: 100%;
+                object-fit: cover;
+                object-position: top;
+                transition: all .5s ease;
+                max-width: 1400px;
+                text-align: center;
+                display: block;
+                margin: 0 auto;
+            }
 
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
+            .justsometext{
+                margin-left: 25px;
+                font-size: 20;
+            }
 
-        .sidebar .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-        }
-
-        #main {
-            transition: margin-left .5s;
-            padding: 16px;
-        }
-
-        #content {
-            transition: margin-left .5s;
-            margin-left: 50px;
-            max-width: 1280px;
-            text-align: left;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .openbtn {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            font-size: 20px;
-            cursor: pointer;
-            background-color: #111;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            margin: 0px 2px;
-            transition: background-color 0.3s;
-        }
-
-        .openbtn:hover {
-            background-color: #444;
-        }
-
-        .sidebar a:hover {
-            background-color: #575757;
-        }
-
-        .switch {
-            position: absolute;
-            top: 20px;
-            left: 32px;
-            display: inline-block;
-            width: 100px;
-            height: 34px;
-        }
-
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url(../Images/Sky.png);
-            background-size: cover;
-            border-radius: 34px;
-            transition: background-image 1s;
-        }
-
-        .slider span {
-            position: absolute;
-            content: "";
-            font-size: 65px;
-            height: 30px;
-            width: 30px;
-            left: -15px;
-            bottom: 20px;
-            transition: transform 1s, opacity 1s;
-            border-radius: 50%;
-        }
-
-        .slider span.moon {
-            opacity: 0;
-            transform: translateX(70px);
-            bottom: 3;
-            left: 0;
-        }
-
-        input:checked + .slider span.sun {
-            transform: translateX(-55px);
-            opacity: 0;
-        }
-
-        input:checked + .slider span.moon {
-            transform: translateX(100);
-            opacity: 1;
-        }
-
-        input:not(:checked) + .slider span.sun {
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        input:not(:checked) + .slider span.moon {
-            transform: translateX(125px);
-            opacity: 0;
-        }
-
-        
-        input:checked + .slider {
-            transition: 1s;
-            background-position: -500px;
-            background-size: cover;
-        }
-
-        input:not(:checked) + .slider {
-            transition: 1s;
-            background-position: 0px;
-            background-size: cover;
-        }
-
-        .image1 {
-            width: 100%;
-            height: 60%;
-            object-fit: cover;
-            object-position: top;
-            transition: all .5s ease;
-            max-width: 1400px;
-            text-align: center;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .image2 {
-            height: 100%;
-            object-fit: cover;
-            object-position: top;
-            transition: all .5s ease;
-            max-width: 1400px;
-            text-align: center;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .justsometext{
-            margin-left: 25px;
-            font-size: 20;
-        }
-
-    </style>
-</head>
-<body>
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-        <a href="#">Home</a>
-        <a href="#">Nothing</a>
-        <a href="#">Bibliografie</a>
-        <a href="../Boom.mov">Creeper</a>
-        <label class="switch">
-            <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
-            <span class="slider round">
-                <span class="sun" id="darkModeIconSun">
-                    <img src="../Images/Sun.png">
+        </style>
+    </head>
+    <body>
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href="home">Home</a>
+            <a href="Lista">Lista</a>
+            <a href="Bibliografie">Bibliografie</a>
+            <a href="../Boom.mov">Creeper</a>
+            <label class="switch">
+                <input type="checkbox" id="darkModeSwitch" onclick="toggleDarkMode()">
+                <span class="slider round">
+                    <span class="sun" id="darkModeIconSun">
+                        <img src="../Images/Sun.png">
+                    </span>
+                    <span class="moon" id="darkModeIconMoon">
+                        <img src="../Images/Moon.png">
+                    </span>
                 </span>
-                <span class="moon" id="darkModeIconMoon">
-                    <img src="../Images/Moon.png">
-                </span>
-            </span>
-        </label>
-    </div>
+            </label>
+        </div>
 
-    <div>
-        <div id="main"></div>
-        <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
-    </div>
-    
-    <script>
-        function openNav() {
-            document.getElementById("mySidebar").style.width = "250px";
-            document.getElementById("main").style.marginLeft = "250px";
-        }
+        <div>
+            <div id="main"></div>
+            <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
+        </div>
         
-        function closeNav() {
-            document.getElementById("mySidebar").style.width = "0";
-            document.getElementById("main").style.marginLeft = "0";
-        }
-        
-        function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
+        <script>
+            function openNav() {
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+                document.getElementById("mySidebar").classList.add("open");
+            }
             
-            // Save dark mode state to localStorage
-            if (document.body.classList.contains("dark-mode")) {
-                localStorage.setItem("darkMode", "enabled");
-            } else {
-                localStorage.removeItem("darkMode");
+            function closeNav() {
+                document.getElementById("mySidebar").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                document.getElementById("mySidebar").classList.remove("open");
             }
-        }
-        
-        // Apply dark mode if it was enabled previously
-        window.onload = function() {
-            if (localStorage.getItem("darkMode") === "enabled") {
-                document.body.classList.add("dark-mode");
-                document.getElementById("darkModeSwitch").checked = true;
+            
+            function toggleDarkMode() {
+                document.body.classList.toggle("dark-mode");
+                
+                // Save dark mode state to localStorage
+                if (document.body.classList.contains("dark-mode")) {
+                    localStorage.setItem("darkMode", "enabled");
+                } else {
+                    localStorage.removeItem("darkMode");
+                }
             }
-        }
-    </script>
+            
+            // Apply dark mode if it was enabled previously
+            window.onload = function() {
+                if (localStorage.getItem("darkMode") === "enabled") {
+                    document.body.classList.add("dark-mode");
+                    document.getElementById("darkModeSwitch").checked = true;
+                }
+            }
+        </script>
 
-    <div id="content">
+        <div id="content">
 
-        <img class="image1" src="../Images/Coperta.jpg">
+            <img class="image1" src="../Images/Coperta.jpg">
 
-        <h1 style="margin-left: 50px;">
-            <u>
-                Destinatii turistice din Romania
-            </u>
-        </h1>
-        
-        <h2>
-            <u style="margin-left: 25px;">
-            Despre Romania
-            </u>
-        </h2>
+            <h1 style="margin-left: 50px;">
+                <u>
+                    Destinatii turistice din Romania
+                </u>
+            </h1>
+            
+            <h2>
+                <u style="margin-left: 25px;">
+                Despre Romania
+                </u>
+            </h2>
 
-        <p class="justsometext">
-            România este un stat situat în sud-estul Europei Centrale, pe cursul inferior al Dunării, la nord de peninsula Balcanică și la țărmul nord-vestic al Mării Negre. România este plasată geografic și în Europa de Est, Europa de Sud-Est respectiv parțial în Europa Centrală. Din punct de vedere geopolitic, România este un stat situat în Europa Centrală și de Est iar din punct de vedere cultural se încadrează parțial în conceptul de „Mitteleuropa” (i.e., Europa de mijloc sau Europa Centrală în limba germană) prin regiunile istorice Transilvania, Banat și Bucovina. Pe teritoriul ei este situată aproape toată suprafața Deltei Dunării și partea sudică și centrală a Munților Carpați. Se învecinează cu Bulgaria la sud, Serbia la sud-vest, Ungaria la nord-vest, Ucraina la nord și est și Republica Moldova la est, iar țărmul Mării Negre se găsește la sud-est.
-        </p>
+            <p class="justsometext">
+                România este un stat situat în sud-estul Europei Centrale, pe cursul inferior al Dunării, la nord de peninsula Balcanică și la țărmul nord-vestic al Mării Negre. România este plasată geografic și în Europa de Est, Europa de Sud-Est respectiv parțial în Europa Centrală. Din punct de vedere geopolitic, România este un stat situat în Europa Centrală și de Est iar din punct de vedere cultural se încadrează parțial în conceptul de „Mitteleuropa” (i.e., Europa de mijloc sau Europa Centrală în limba germană) prin regiunile istorice Transilvania, Banat și Bucovina. Pe teritoriul ei este situată aproape toată suprafața Deltei Dunării și partea sudică și centrală a Munților Carpați. Se învecinează cu Bulgaria la sud, Serbia la sud-vest, Ungaria la nord-vest, Ucraina la nord și est și Republica Moldova la est, iar țărmul Mării Negre se găsește la sud-est.
+            </p>
 
-        <h1>
-            <u style="margin-left: 50px;">
-            Destinatii turistice:
-            </u>
-        </h1>
-        <h2>
-            <u style="margin-left: 25px;" class = "hreftext">
-                1. Transalpina
-            <a href="../Images/Transalpina.jpg">
-                <img src="../Images/Transalpina.jpg" class="image2">
-            </a>
-            </u>
-        </h2>
-        <p class="justsometext">
-            Este unul dintre cele mai frumoase locuri din România deoarece Transalpina reprezintă cel mai înalt drum rutier din România, dar și din întregul lanț al Munților Carpați. Drumul are o lungime de 146 de kilometri și este situat la o altitudine de 2.145 de metri. Transalpina este un drum spectaculos, cu peisaje deosebite, care îți taie respirația.
-        </p>
-        <b class="hreftext">
-            <a href="Transalpina">- Mai multe informatii</a>
-        </b>
+            <h1>
+                <u style="margin-left: 50px;">
+                Destinatii turistice:
+                </u>
+            </h1>
+            <h2>
+                <u style="margin-left: 25px;" class = "hreftext">
+                    1. Transalpina
+                <a href="../Images/Transalpina.jpg">
+                    <img src="../Images/Transalpina.jpg" class="image2">
+                </a>
+                </u>
+            </h2>
+            <p class="justsometext">
+                Este unul dintre cele mai frumoase locuri din România deoarece Transalpina reprezintă cel mai înalt drum rutier din România, dar și din întregul lanț al Munților Carpați. Drumul are o lungime de 146 de kilometri și este situat la o altitudine de 2.145 de metri. Transalpina este un drum spectaculos, cu peisaje deosebite, care îți taie respirația.
+            </p>
+            <b class="hreftext">
+                <a href="Transalpina">- Mai multe informatii</a>
+            </b>
 
-        <h2>
-            <u style="margin-left: 25px;" class = "hreftext">
-                2. Transfăgărășan
-            <a href="../Images/Transfagarasean.jpg">
-                <img src="../Images/Transfagarasean.jpg" class="image2">
-            </a>
-            </u>
-        </h2>
-        <p class="justsometext">
-            Unul dintre cele mai frumoase obiective turistice, deoarece traseul Transfăgărășan îți pune la dispoziție pentru vizitat și lacul glaciar Bâlea, cascada Bâlea, lacul Vidraru și barajul Vidraru, dar și multe alte puncte turistice.
-        </p>
-        <b class="hreftext">
-            <a href="">- Mai multe informatii</a>
-        </b>
+            <h2>
+                <u style="margin-left: 25px;" class = "hreftext">
+                    2. Transfăgărășan
+                <a href="../Images/Transfagarasean.jpg">
+                    <img src="../Images/Transfagarasean.jpg" class="image2">
+                </a>
+                </u>
+            </h2>
+            <p class="justsometext">
+                Unul dintre cele mai frumoase obiective turistice, deoarece traseul Transfăgărășan îți pune la dispoziție pentru vizitat și lacul glaciar Bâlea, cascada Bâlea, lacul Vidraru și barajul Vidraru, dar și multe alte puncte turistice.
+            </p>
+            <b class="hreftext">
+                <a href="">- Mai multe informatii</a>
+            </b>
 
-        <h2>
-            <u style="margin-left: 25px;" class = "hreftext">
-                3. Cascada Bigăr
-            <a href="../Images/cascada bigar.jpg">
-                <img src="../Images/cascada bigar.jpg" class="image2">
-            </a>
-            </u>
-        </h2>
-        <p class="justsometext">
-            Cascada Bigăr este unul dintre cele mai frumoase obiective turistice din județul Caraș-Severin, din Parcul Național Cheile Nerei-Beușnița. În urma unui clasament făcut în 2013 de The World Geography, cascada Bigăr a obținut primul loc pentru cea mai frumoasă cascadă unică din lume.
-        </p>
-        <b class="hreftext">
-            <a href="">- Mai multe informatii</a>
-        </b>
+            <h2>
+                <u style="margin-left: 25px;" class = "hreftext">
+                    3. Cascada Bigăr
+                <a href="../Images/cascada bigar.jpg">
+                    <img src="../Images/cascada bigar.jpg" class="image2">
+                </a>
+                </u>
+            </h2>
+            <p class="justsometext">
+                Cascada Bigăr este unul dintre cele mai frumoase obiective turistice din județul Caraș-Severin, din Parcul Național Cheile Nerei-Beușnița. În urma unui clasament făcut în 2013 de The World Geography, cascada Bigăr a obținut primul loc pentru cea mai frumoasă cascadă unică din lume.
+            </p>
+            <b class="hreftext">
+                <a href="">- Mai multe informatii</a>
+            </b>
 
-        <h2>
-            <u style="margin-left: 25px;" class = "hreftext">
-                4. Cetatea Alba Iulia
-            <a href="../Images/Cetatea alba iulia.jpg">
-                <img src="../Images/Cetatea alba iulia.jpg" class="image2">
-            </a>
-            </u>
-        </h2>
-        <p class="justsometext">
-            Unul dintre cele mai vizitate obiective turistice din România, acolo unde, înainte de a o vizita în totalitate, turiștii pot face un tur virtual la pas pe străzile Cetății Alba Iulia.
-        </p>
-        <b class="hreftext">
-            <a href="">- Mai multe informatii</a>
-        </b>
+            <h2>
+                <u style="margin-left: 25px;" class = "hreftext">
+                    4. Cetatea Alba Iulia
+                <a href="../Images/Cetatea alba iulia.jpg">
+                    <img src="../Images/Cetatea alba iulia.jpg" class="image2">
+                </a>
+                </u>
+            </h2>
+            <p class="justsometext">
+                Unul dintre cele mai vizitate obiective turistice din România, acolo unde, înainte de a o vizita în totalitate, turiștii pot face un tur virtual la pas pe străzile Cetății Alba Iulia.
+            </p>
+            <b class="hreftext">
+                <a href="">- Mai multe informatii</a>
+            </b>
 
-    </div>
-</body>
+        </div>
+    </body>
 </html>

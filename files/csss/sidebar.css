@@ -1,0 +1,162 @@
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s, padding-left 0.5s;
+    position: relative;
+    left: -250px;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar.open a {
+    left: 0;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    text-align: right;
+    margin-left: 200px;
+    font-size: 36px;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+#content {
+    transition: margin-left .5s;
+    margin-left: 50px;
+    max-width: 1280px;
+    text-align: left;
+    display: block;
+    margin: 0 auto;
+}
+
+.openbtn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px 2px;
+    transition: background-color 0.3s;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.switch {
+    position: absolute;
+    top: 20px;
+    left: -218px;
+    display: inline-block;
+    width: 100px;
+    height: 34px;
+    transition: left 1s;
+}
+
+.sidebar.open .switch {
+    left: 32px;
+    transition: left 1s;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../Images/Sky.png);
+    background-size: cover;
+    border-radius: 34px;
+    transition: background-image 1s;
+}
+
+.slider span {
+    position: absolute;
+    content: "";
+    font-size: 65px;
+    height: 30px;
+    width: 30px;
+    left: -15px;
+    bottom: 20px;
+    transition: transform 1s, opacity 1s;
+    border-radius: 50%;
+}
+
+.slider span.moon {
+    opacity: 0;
+    transform: translateX(70px);
+    bottom: 3;
+    left: 0;
+}
+
+input:checked + .slider span.sun {
+    transform: translateX(-55px);
+    opacity: 0;
+}
+
+input:checked + .slider span.moon {
+    transform: translateX(100);
+    opacity: 1;
+}
+
+input:not(:checked) + .slider span.sun {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+input:not(:checked) + .slider span.moon {
+    transform: translateX(125px);
+    opacity: 0;
+}
+
+
+input:checked + .slider {
+    transition: 1s;
+    background-position: -500px;
+    background-size: cover;
+}
+
+input:not(:checked) + .slider {
+    transition: 1s;
+    background-position: 0px;
+    background-size: cover;
+}
