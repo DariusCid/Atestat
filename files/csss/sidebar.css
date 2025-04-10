@@ -1,3 +1,42 @@
+body {
+    font-family: "Lato", sans-serif;
+    transition: background-color 1s, color 1s;
+}
+
+.hreftext a {
+    color: black;
+    margin-left: 25px;
+    font-size: 20;
+}
+
+.image1 {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    object-position: top;
+    transition: all .5s ease;
+    max-width: 1400px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.image2 {
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: all .5s ease;
+    max-width: 1400px;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.justsometext{
+    margin-left: 25px;
+    font-size: 20;
+}
+
 .sidebar {
     height: 100%;
     width: 0;
@@ -96,6 +135,13 @@
     transition: left 1s;
 }
 
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -103,7 +149,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url(../Images/Sky.png);
+    background-image: url(../Images/switch/Sky.png);
     background-size: cover;
     border-radius: 34px;
     transition: background-image 1s;
